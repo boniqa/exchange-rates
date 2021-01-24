@@ -1,5 +1,9 @@
 <app-nav-bar></app-nav-bar>
 <div *ngIf="loaded" class="main-body">
-    <p>EUR <mat-icon>arrow_right_alt</mat-icon> PLN</p>
-    <span>{{data.rates.PLN}} PLN</span>
+    <section *ngFor="let el of data">
+        <p>{{el.base}} <mat-icon>arrow_right_alt</mat-icon> <span *ngFor="let rate of el.rates|keyvalue"> {{rate.key}} : {{rate.value}}</span></p>
+        <span>{{el.date}}</span>
+    </section>
 </div>
+
+<app-rates-carousel></app-rates-carousel>

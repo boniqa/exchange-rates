@@ -15,13 +15,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { HttpClientModule } from '@angular/common/http';
+import { RatesCarouselComponent } from './areas/rates-carousel/rates-carousel.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    NavBarComponent
+    NavBarComponent,
+    RatesCarouselComponent
   ],
   imports: [
     BrowserModule,
