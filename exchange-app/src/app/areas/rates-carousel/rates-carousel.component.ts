@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ExchangeRatesService } from 'src/app/shared/services/exchange-rates.service';
 
 @Component({
   selector: 'app-rates-carousel',
@@ -7,9 +9,62 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RatesCarouselComponent implements OnInit {
 
-  constructor() { }
+  dataToDisplay: any[];
+  loaded: boolean;
+
+  customOptions: OwlOptions = {
+    items: 1,
+    center: true,
+    margin: 40,
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    nav: true,
+    dots: true,
+    dotsEach: true,
+    autoplay: true,
+    navSpeed: 700,
+    navText: ['back', 'next'],
+  }
+  
+  constructor(private exchangeRatesService: ExchangeRatesService) { }
 
   ngOnInit(): void {
+    this.loaded = false;
+    this.initData();
+  }
+
+  initData() {
+    let arrResult = [];
+    this.exchangeRatesService.getAllData().subscribe((res)=>{
+      res.forEach(element => {
+        let result = {
+          base: element.base,
+          rate: Object.keys(element.rates)[0],
+          value: element.rates[Object.keys(element.rates)[0]]
+        }
+        arrResult.push(result);
+      });
+      this.dataToDisplay= arrResult;
+      this.loaded = true;
+    })
+  }
+
+  updateRate($event){
+    if(this.loaded){
+      let nextIndex = $event.startPosition;
+      this.exchangeRatesService.updateRate(nextIndex).subscribe((res)=>{
+        let result = {
+          base: res.base,
+          rate: Object.keys(res.rates)[0],
+          value: res.rates[Object.keys(res.rates)[0]]
+        }
+        console.log($event.startPosition);
+        //add hash?
+        // this.dataToDisplay[nextIndex] = result;
+      })
+    }
   }
 
 }

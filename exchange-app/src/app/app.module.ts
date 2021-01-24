@@ -16,6 +16,7 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RatesCarouselComponent } from './areas/rates-carousel/rates-carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { RatesCarouselComponent } from './areas/rates-carousel/rates-carousel.co
     MatListModule,
     MatSliderModule,
     HttpClientModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

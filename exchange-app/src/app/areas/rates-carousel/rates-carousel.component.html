@@ -1,1 +1,12 @@
-<p>rates-carousel works!</p>
+<owl-carousel-o [options]="customOptions" (translated)="updateRate($event)">
+    <ng-container *ngFor="let item of dataToDisplay">
+        <ng-template carouselSlide>
+            <div class="slide">
+                <div class="rate">
+                    <span class="label">{{item.base}} : {{item.rate}}</span>
+                    <span class="value">{{item.value | currency : item.rate }}</span>
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+</owl-carousel-o>

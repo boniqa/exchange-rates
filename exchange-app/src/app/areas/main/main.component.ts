@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { concat, merge } from 'rxjs';
 import { ExchangeRatesService } from 'src/app/shared/services/exchange-rates.service';
 
 @Component({
@@ -9,18 +8,15 @@ import { ExchangeRatesService } from 'src/app/shared/services/exchange-rates.ser
 })
 export class MainComponent implements OnInit {
   loaded: boolean;
-  data: any[] = [];
+  plnRate: string;
 
   constructor(private exchangeRatesService: ExchangeRatesService) { }
 
   ngOnInit(): void {
     this.loaded = false;
-    merge(
-      this.exchangeRatesService.getRates('EUR', 'PLN'),
-      this.exchangeRatesService.getRates('USD', 'GBP'),
-      this.exchangeRatesService.getRates('CAD', 'CHF')
-    ).subscribe((res)=>{
-      this.data.push(res);
+    this.exchangeRatesService.getRate('EUR', 'PLN')
+    .subscribe((res)=>{
+      this.plnRate = res.rates['PLN'];
     })
     this.loaded = true;
   }

@@ -1,0 +1,29 @@
+$img-url: 'http://placekitten.com/g/1000/800';
+
+.slide{
+    background-image: url($img-url);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    height: 400px;
+    display: block;
+    .rate{
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        background-color: #ddd;
+        display: grid;
+        .label{
+            padding: 20px;
+            font-size: 24px;
+        }
+        .value{
+            padding-bottom: 20px;
+            font-size: 20px;
+        }
+    }
+}
+
+
