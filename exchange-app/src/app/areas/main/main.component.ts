@@ -17,8 +17,8 @@ export class MainComponent implements OnInit {
     this.exchangeRatesService.getRate('EUR', 'PLN')
     .subscribe((res)=>{
       this.plnRate = res.rates['PLN'];
+      this.loaded = true;
     })
-    this.loaded = true;
   }
 
 }

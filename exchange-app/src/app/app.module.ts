@@ -12,12 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatSliderModule } from '@angular/material/slider';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RatesCarouselComponent } from './areas/rates-carousel/rates-carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
 
 @NgModule({
   declarations: [
@@ -36,10 +34,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatSliderModule,
     HttpClientModule,
     CarouselModule
   ],
+  exports: [NavBarComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
