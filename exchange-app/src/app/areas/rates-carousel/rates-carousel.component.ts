@@ -60,7 +60,7 @@ export class RatesCarouselComponent implements OnInit {
           rate: Object.keys(res.rates)[0],
           value: res.rates[Object.keys(res.rates)[0]]
         }
-        console.log($event.startPosition);
+        // console.log($event.startPosition);
        
         //update data not working, jumping to the first slide -> hash?
         // this.dataToDisplay[nextIndex] = result;

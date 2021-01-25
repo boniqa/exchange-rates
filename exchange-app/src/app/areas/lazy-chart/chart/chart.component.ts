@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ChartComponent implements OnInit {
   rates: any;
   chartData: any[] = [];
-  view: any[] = [1400, 600];
+  view: any[] = [1000, 600];
   loaded: boolean;
 
   colorScheme = {
