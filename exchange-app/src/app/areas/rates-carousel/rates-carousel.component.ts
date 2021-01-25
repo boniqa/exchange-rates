@@ -53,7 +53,7 @@ export class RatesCarouselComponent implements OnInit {
 
   updateRate($event){
     if(this.loaded){
-      let nextIndex = $event.startPosition;
+      let nextIndex = $event.startPosition == 2 ? 0 : ($event.startPosition + 1);
       this.exchangeRatesService.updateRate(nextIndex).subscribe((res)=>{
         let result = {
           base: res.base,
@@ -61,7 +61,8 @@ export class RatesCarouselComponent implements OnInit {
           value: res.rates[Object.keys(res.rates)[0]]
         }
         console.log($event.startPosition);
-        //add hash?
+       
+        //update data not working, jumping to the first slide -> hash?
         // this.dataToDisplay[nextIndex] = result;
       })
     }
