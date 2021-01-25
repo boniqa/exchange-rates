@@ -1,7 +1,17 @@
-<mat-toolbar>
-    <span><b>Rates</b></span>
-    <span class="example-spacer"></span>
-    <button mat-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <a routerLink='/main'>Go Back</a>
-    </button>
-</mat-toolbar>
+<div class="chart" *ngIf="loaded">
+    <ngx-charts-line-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [legend]="legend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [yAxis]="yAxis"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [timeline]="timeline"
+    [results]="chartData"
+    >
+  </ngx-charts-line-chart>
+</div>
+

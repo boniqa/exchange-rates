@@ -32,7 +32,7 @@ export class ExchangeRatesService {
     return this.getRate( this.rates[index].base, this.rates[index].symbols);
   }
 
-  getHistoricData(){
-    return this.http.get('https://api.exchangeratesapi.io/history?start_at=2010-01-01&base=PLN&end_at=2021-01-01');
+  getHistoricData(): Observable<any>{
+    return this.http.get('https://api.exchangeratesapi.io/history?start_at=2010-01-01&base=PLN&end_at=2021-01-01&symbols=EUR,USD');
   }
 }
